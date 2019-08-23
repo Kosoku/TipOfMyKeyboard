@@ -17,7 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
+import Ditko
 
 protocol DetailViewController {
     var name: String { get }
@@ -25,5 +25,32 @@ protocol DetailViewController {
 }
 
 class TableViewController: UITableViewController {
-    private let detailViewControllers = [UIViewController & DetailViewController]()
+    private let detailViewControllers: [UIViewController & DetailViewController] = [SelfSizingCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Tip of My Keyboard"
+        
+        self.tableView.backgroundColor = .white
+        self.tableView.register(KDITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.detailViewControllers.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let retval = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! KDITableViewCell
+        
+        retval.accessoryType = .disclosureIndicator
+        retval.title = self.detailViewControllers[indexPath.row].name
+        retval.subtitleNumberOfLines = 0
+        retval.subtitle = self.detailViewControllers[indexPath.row].summary
+        
+        return retval
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(self.detailViewControllers[indexPath.row], animated: true)
+    }
 }

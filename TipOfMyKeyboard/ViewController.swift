@@ -20,12 +20,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let viewController = UINavigationController(rootViewController: TableViewController())
+        
+        self.addChild(viewController)
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(viewController.view)
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: .none, metrics: nil, views: ["view": viewController.view!]))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: .none, metrics: nil, views: ["view": viewController.view!]))
+        viewController.didMove(toParent: self)
     }
-
-
 }
 
