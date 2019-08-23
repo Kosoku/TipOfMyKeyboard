@@ -23,13 +23,13 @@ import KSOColorPicker
 extension UINavigationController {
     func updateNavigationBarTintColor(_ barTintColor: UIColor) {
         let block = {
-            if self is StatusBarUpdatingNavigationController {
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-            
             self.navigationBar.barTintColor = barTintColor
             self.navigationBar.tintColor = barTintColor.kdi_contrasting().kdi_colorByAdjustingBrightness(byPercent: -0.15)!
             self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: barTintColor.kdi_contrasting()]
+            
+            if self is StatusBarUpdatingNavigationController {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
         }
         
         guard let transitionCoordinator = self.transitionCoordinator else {
