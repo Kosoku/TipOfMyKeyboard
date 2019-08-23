@@ -18,9 +18,45 @@
 //  limitations under the License.
 
 import Ditko
+import KSOColorPicker
+
+extension UINavigationController {
+    func updateNavigationBarTintColor(_ barTintColor: UIColor) {
+        let block = {
+            if self is StatusBarUpdatingNavigationController {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            
+            self.navigationBar.barTintColor = barTintColor
+            self.navigationBar.tintColor = barTintColor.kdi_contrasting().kdi_colorByAdjustingBrightness(byPercent: -0.15)!
+            self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: barTintColor.kdi_contrasting()]
+        }
+        
+        guard let transitionCoordinator = self.transitionCoordinator else {
+            block()
+            return
+        }
+        
+        transitionCoordinator.animate(alongsideTransition: { _ in
+            block()
+        }, completion: { context in
+            if context.isCancelled {
+                block()
+            }
+        })
+    }
+}
+
+class StatusBarUpdatingNavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.navigationBar.barTintColor?.kdi_contrastingStatusBarStyle() ?? .default
+    }
+}
 
 class NavigationBarTintColorUpdatingViewController: UIViewController, DetailViewController {
-    
+    private let stackView = UIStackView()
+    private let pushBarTintColorButton = KSOColorPickerButton(type: .system)
+    private let popBarTintColorButton = KSOColorPickerButton(type: .system)
     
     var name: String {
         return "UINavigationBar barTintColor updating"
@@ -33,7 +69,42 @@ class NavigationBarTintColorUpdatingViewController: UIViewController, DetailView
         super.viewDidLoad()
         
         self.title = self.name
-        
         self.view.backgroundColor = .white
+        
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.stackView.axis = .vertical
+        self.stackView.alignment = .center
+        self.stackView.spacing = 8.0
+        self.view.addSubview(self.stackView)
+        
+        NSLayoutConstraint.activate([self.stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor), self.stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)])
+        
+        self.pushBarTintColorButton.translatesAutoresizingMaskIntoConstraints = false
+        self.pushBarTintColorButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 0.0)
+        self.pushBarTintColorButton.setTitle("Push Color", for: .normal)
+        self.stackView.addArrangedSubview(self.pushBarTintColorButton)
+        
+        self.popBarTintColorButton.translatesAutoresizingMaskIntoConstraints = false
+        self.popBarTintColorButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 0.0)
+        self.popBarTintColorButton.setTitle("Pop Color", for: .normal)
+        self.stackView.addArrangedSubview(self.popBarTintColorButton)
+    }
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        
+        guard let color = parent == nil ? self.popBarTintColorButton.color : self.pushBarTintColorButton.color else {
+            return
+        }
+        
+        self.navigationController?.updateNavigationBarTintColor(color)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let color = self.pushBarTintColorButton.color else {
+            return
+        }
+        
+        self.navigationController?.updateNavigationBarTintColor(color)
     }
 }

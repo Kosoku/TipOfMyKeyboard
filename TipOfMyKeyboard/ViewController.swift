@@ -20,12 +20,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.children.first?.preferredStatusBarStyle ?? .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         
-        let viewController = UINavigationController(rootViewController: TableViewController())
+        let viewController = StatusBarUpdatingNavigationController(rootViewController: TableViewController())
         
         self.addChild(viewController)
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
