@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TableViewController.swift
 //  TipOfMyKeyboard
 //
 //  Created by William Towe on 8/22/19.
@@ -19,13 +19,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+protocol DetailViewController {
+    var name: String { get }
+    var summary: String? { get }
 }
 
+class TableViewController: UITableViewController {
+    private let detailViewControllers = [UIViewController & DetailViewController]()
+}
