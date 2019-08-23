@@ -14,11 +14,13 @@ PODS:
   - KSOFontAwesomeExtensions (1.5.2):
     - Stanley
   - Loki (1.4.3)
+  - LoremIpsum (1.0.0)
   - Stanley (2.16.2)
 
 DEPENDENCIES:
   - Agamotto
   - Ditko
+  - LoremIpsum
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Ditko
     - KSOFontAwesomeExtensions
     - Loki
+    - LoremIpsum
     - Stanley
 
 SPEC CHECKSUMS:
@@ -33,8 +36,9 @@ SPEC CHECKSUMS:
   Ditko: e081c3647935f2999f8e7db2492c85d19a5dd55b
   KSOFontAwesomeExtensions: 0fccd70cbebf1abc21da83ebfb3ad46b08d52f3c
   Loki: a3ba11be3299046aba884b5cad148d736bc3f3ae
+  LoremIpsum: 9029c55d36501b2ee0b05cc9ecda11d3a0479160
   Stanley: ff90cc651546bee122715a29c639cb670e21801e
 
-PODFILE CHECKSUM: b2a32965ab1b0c4bef2340b9118b081b3d568fe2
+PODFILE CHECKSUM: 9b0afba7663b51cb24ca0c5c21b7886468d4ead3
 
 COCOAPODS: 1.7.5
