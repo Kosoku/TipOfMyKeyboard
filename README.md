@@ -8,6 +8,6 @@ This repository serves as a reference for iOS tricks that are commonly forgotten
 1. Install [bundler](https://bundler.io/), you might already have this
 1. Install dependencies using bundler
 
-	bundle exec pod install
+		bundle exec pod install
 
 1. Open *TipOfMyKeyboard.xcworkspace*
