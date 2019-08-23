@@ -11,6 +11,10 @@ PODS:
     - KSOFontAwesomeExtensions
     - Loki
     - Stanley
+  - KSOColorPicker (0.4.1):
+    - Ditko
+    - KSOFontAwesomeExtensions
+    - Stanley
   - KSOFontAwesomeExtensions (1.5.2):
     - Stanley
   - Loki (1.4.3)
@@ -20,12 +24,14 @@ PODS:
 DEPENDENCIES:
   - Agamotto
   - Ditko
+  - KSOColorPicker
   - LoremIpsum
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Agamotto
     - Ditko
+    - KSOColorPicker
     - KSOFontAwesomeExtensions
     - Loki
     - LoremIpsum
@@ -34,11 +40,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Agamotto: 5a5404e6908a7fb27460fdf8b17453b05d9977bb
   Ditko: e081c3647935f2999f8e7db2492c85d19a5dd55b
+  KSOColorPicker: 2b387681c980d891d5f31e56f0212b324b38cd64
   KSOFontAwesomeExtensions: 0fccd70cbebf1abc21da83ebfb3ad46b08d52f3c
   Loki: a3ba11be3299046aba884b5cad148d736bc3f3ae
   LoremIpsum: 9029c55d36501b2ee0b05cc9ecda11d3a0479160
   Stanley: ff90cc651546bee122715a29c639cb670e21801e
 
-PODFILE CHECKSUM: 9b0afba7663b51cb24ca0c5c21b7886468d4ead3
+PODFILE CHECKSUM: 11942c4c3648365430079a0e4becb0f7f88d1153
 
 COCOAPODS: 1.7.5

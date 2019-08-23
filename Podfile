@@ -7,6 +7,7 @@ target 'TipOfMyKeyboard' do
 
 	pod 'Agamotto'
 	pod 'Ditko'
+	pod 'KSOColorPicker'
 	pod 'LoremIpsum'
 end
 

@@ -25,7 +25,8 @@ protocol DetailViewController {
 }
 
 class TableViewController: UITableViewController {
-    private let detailViewControllers: [UIViewController & DetailViewController] = [SelfSizingCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())]
+    private let detailViewControllers: [UIViewController & DetailViewController] = [SelfSizingCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()),
+    NavigationBarTintColorUpdatingViewController()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

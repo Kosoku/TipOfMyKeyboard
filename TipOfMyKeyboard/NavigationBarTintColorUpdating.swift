@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NavigationBarTintColorUpdating.swift
 //  TipOfMyKeyboard
 //
 //  Created by William Towe on 8/22/19.
@@ -17,22 +17,23 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
+import Ditko
 
-class ViewController: UIViewController {
+class NavigationBarTintColorUpdatingViewController: UIViewController, DetailViewController {
+    
+    
+    var name: String {
+        return "UINavigationBar barTintColor updating"
+    }
+    var summary: String? {
+        return "Animating the transition between barTintColor changes"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = self.name
+        
         self.view.backgroundColor = .white
-        
-        let viewController = UINavigationController(rootViewController: TableViewController())
-        
-        self.addChild(viewController)
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(viewController.view)
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: .none, metrics: nil, views: ["view": viewController.view!]))
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: .none, metrics: nil, views: ["view": viewController.view!]))
-        viewController.didMove(toParent: self)
     }
 }
-
