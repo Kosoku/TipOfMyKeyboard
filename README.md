@@ -1,6 +1,6 @@
 ## TipOfMyKeyboard
 
-This repository serves as a reference for iOS tricks that are commonly forgotten only to dig up that one project from that one time where you implemented it before but forgot.
+This repository serves as a reference for iOS tricks that are commonly forgotten until you dig up that one project from that one time where you implemented it previously.
 
 ### Setup
 
