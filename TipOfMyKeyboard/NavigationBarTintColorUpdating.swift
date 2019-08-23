@@ -40,6 +40,7 @@ extension UINavigationController {
         transitionCoordinator.animate(alongsideTransition: { _ in
             block()
         }, completion: { context in
+            // the interactive animation was cancelled, call the block again
             if context.isCancelled {
                 block()
             }
@@ -92,6 +93,7 @@ class NavigationBarTintColorUpdatingViewController: UIViewController, DetailView
     override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
         
+        // this handles the more common, non-interactive animation case
         guard let color = parent == nil ? self.popBarTintColorButton.color : self.pushBarTintColorButton.color else {
             return
         }
@@ -101,6 +103,7 @@ class NavigationBarTintColorUpdatingViewController: UIViewController, DetailView
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // this handles the case where the interactive pop animation is cancelled, so we reset to the push color
         guard let color = self.pushBarTintColorButton.color else {
             return
         }
