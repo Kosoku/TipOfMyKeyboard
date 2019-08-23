@@ -14,6 +14,7 @@
 		07E3B8CB230F6E57009A5DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E3B8C9230F6E57009A5DB5 /* LaunchScreen.storyboard */; };
 		07E3B8D3230F6EDC009A5DB5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B8D2230F6EDC009A5DB5 /* TableViewController.swift */; };
 		07E3B8D5230F6FBC009A5DB5 /* SelfSizingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3B8D4230F6FBC009A5DB5 /* SelfSizingCollectionViewController.swift */; };
+		F489EC9EEC7EAB9E36447247 /* libPods-TipOfMyKeyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5C2DCEBA28AAF6FC27683F /* libPods-TipOfMyKeyboard.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		07E3B8CC230F6E57009A5DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E3B8D2230F6EDC009A5DB5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		07E3B8D4230F6FBC009A5DB5 /* SelfSizingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCollectionViewController.swift; sourceTree = "<group>"; };
+		338C102262A8AD33C7218910 /* Pods-TipOfMyKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipOfMyKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-TipOfMyKeyboard/Pods-TipOfMyKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		6D5C2DCEBA28AAF6FC27683F /* libPods-TipOfMyKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TipOfMyKeyboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15C4422FE566CB4D4623A18 /* Pods-TipOfMyKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipOfMyKeyboard.release.xcconfig"; path = "Target Support Files/Pods-TipOfMyKeyboard/Pods-TipOfMyKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F489EC9EEC7EAB9E36447247 /* libPods-TipOfMyKeyboard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				07E3B8BF230F6E55009A5DB5 /* TipOfMyKeyboard */,
 				07E3B8BE230F6E55009A5DB5 /* Products */,
+				F436BFBBD871B948915F8947 /* Pods */,
+				8576C1BFD79BB2D159A59F04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,24 @@
 			path = TipOfMyKeyboard;
 			sourceTree = "<group>";
 		};
+		8576C1BFD79BB2D159A59F04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D5C2DCEBA28AAF6FC27683F /* libPods-TipOfMyKeyboard.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F436BFBBD871B948915F8947 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				338C102262A8AD33C7218910 /* Pods-TipOfMyKeyboard.debug.xcconfig */,
+				B15C4422FE566CB4D4623A18 /* Pods-TipOfMyKeyboard.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07E3B8CF230F6E57009A5DB5 /* Build configuration list for PBXNativeTarget "TipOfMyKeyboard" */;
 			buildPhases = (
+				4B1D531740FBAB1220900D8A /* [CP] Check Pods Manifest.lock */,
 				07E3B8B9230F6E55009A5DB5 /* Sources */,
 				07E3B8BA230F6E55009A5DB5 /* Frameworks */,
 				07E3B8BB230F6E55009A5DB5 /* Resources */,
+				E1737A975C3F341ECC00D9A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B1D531740FBAB1220900D8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TipOfMyKeyboard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1737A975C3F341ECC00D9A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TipOfMyKeyboard/Pods-TipOfMyKeyboard-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TipOfMyKeyboard/Pods-TipOfMyKeyboard-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TipOfMyKeyboard/Pods-TipOfMyKeyboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07E3B8B9230F6E55009A5DB5 /* Sources */ = {
@@ -288,6 +357,7 @@
 		};
 		07E3B8D0230F6E57009A5DB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 338C102262A8AD33C7218910 /* Pods-TipOfMyKeyboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -306,6 +376,7 @@
 		};
 		07E3B8D1230F6E57009A5DB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B15C4422FE566CB4D4623A18 /* Pods-TipOfMyKeyboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

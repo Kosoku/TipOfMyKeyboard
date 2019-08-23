@@ -1,0 +1,40 @@
+PODS:
+  - Agamotto (1.1.0):
+    - Agamotto/AppKit (= 1.1.0)
+    - Agamotto/Core (= 1.1.0)
+    - Agamotto/UIKit (= 1.1.0)
+  - Agamotto/Core (1.1.0):
+    - Stanley
+  - Agamotto/UIKit (1.1.0):
+    - Agamotto/Core
+  - Ditko (3.50.0):
+    - KSOFontAwesomeExtensions
+    - Loki
+    - Stanley
+  - KSOFontAwesomeExtensions (1.5.2):
+    - Stanley
+  - Loki (1.4.3)
+  - Stanley (2.16.2)
+
+DEPENDENCIES:
+  - Agamotto
+  - Ditko
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Agamotto
+    - Ditko
+    - KSOFontAwesomeExtensions
+    - Loki
+    - Stanley
+
+SPEC CHECKSUMS:
+  Agamotto: 5a5404e6908a7fb27460fdf8b17453b05d9977bb
+  Ditko: e081c3647935f2999f8e7db2492c85d19a5dd55b
+  KSOFontAwesomeExtensions: 0fccd70cbebf1abc21da83ebfb3ad46b08d52f3c
+  Loki: a3ba11be3299046aba884b5cad148d736bc3f3ae
+  Stanley: ff90cc651546bee122715a29c639cb670e21801e
+
+PODFILE CHECKSUM: b2a32965ab1b0c4bef2340b9118b081b3d568fe2
+
+COCOAPODS: 1.7.5
