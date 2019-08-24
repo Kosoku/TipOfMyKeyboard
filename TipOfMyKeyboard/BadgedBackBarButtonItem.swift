@@ -17,16 +17,16 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+import Agamotto
 import Ditko
+import KSOColorPicker
 import Stanley
 
 class BadgedBackBarButtonItemViewController: UIViewController, DetailViewController {
-    static let updateBadgeCountNotification = NSNotification.Name("updateBadgeCountNotification")
-    static let badgeCountUserInfoKey = "badgeCountUserInfoKey"
-    
     private let stackView = UIStackView()
     private let updateButton = UIButton(type: .system)
     private let clearButton = UIButton(type: .system)
+    private let tintColorButton = KSOColorPickerButton(type: .system)
     
     var name: String {
         return "Badged backBarButtonItem"
@@ -99,5 +99,14 @@ class BadgedBackBarButtonItemViewController: UIViewController, DetailViewControl
             self?.updateBackBarButtonItem(nil)
         }, for: .touchUpInside)
         self.stackView.addArrangedSubview(self.clearButton)
+        
+        self.tintColorButton.translatesAutoresizingMaskIntoConstraints = false
+        self.tintColorButton.setTitle("Tint Color", for: .normal)
+        self.tintColorButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 0.0)
+        self.stackView.addArrangedSubview(self.tintColorButton)
+        
+        self.tintColorButton.kag_addObserver(forKeyPath: "color", options: NSKeyValueObservingOptions(rawValue: 0)) { [weak self] (_, _, _) in
+            self?.navigationController?.navigationBar.tintColor = self?.tintColorButton.color
+        }
     }
 }
