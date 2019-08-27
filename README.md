@@ -15,3 +15,9 @@ This repository serves as a reference for iOS tricks that are commonly forgotten
         bundle exec pod install
 
 1. Open *TipOfMyKeyboard.xcworkspace*
+
+### Examples
+
+- *SelfSizingCollectionViewController.swift*, an example of self-sizing `UICollectionView` cells and supplementary views
+- *NavigationBarTintColorUpdatingViewController.swift*, an example of animating the `barTintColor` property of `UINavigationBar` in a way that supports interactive pop
+- *BadgedBackBarButtonItemViewController.swift*, an example of a badged `backBarButtonItem` property of `UINavigationItem`, similar to how the Mail app badges the back item with the number of unread emails
